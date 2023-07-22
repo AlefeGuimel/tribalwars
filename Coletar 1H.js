@@ -1,3 +1,12 @@
+// ==UserScript==
+// @name                Coletar Recursos 1h
+// @version     	    1.0.4
+// @description         Scavenge for resources automatically
+// @author              AlefeGuimel
+// @icon                https://dsbr.innogamescdn.com/asset/8dd287c8/graphic/lehm.png
+// @include             https://*.tribalwars.com.*/game.php?**&mode=scavenge*
+// ==/UserScript==
+
 var Porcentual_de_Coleta = [4200,1700,870,580] // 1:00h
 
 var Lanceiro = 0;
