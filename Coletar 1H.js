@@ -1,12 +1,3 @@
-// ==UserScript==
-// @name                Coletar Recursos 1h
-// @version     	    1.0.4
-// @description         Scavenge for resources automatically
-// @author              AlefeGuimel
-// @icon                https://dsbr.innogamescdn.com/asset/8dd287c8/graphic/lehm.png
-// @include             https://*.tribalwars.com.*/game.php?**&mode=scavenge*
-// ==/UserScript==
-
 var Porcentual_de_Coleta = [4200,1700,870,580] // 1:00h
 
 var Lanceiro = 0;
@@ -24,7 +15,6 @@ var Unidades_Coletando = [
     [Espadachim, "a.units-entry-all[data-unit='sword']",true,15,"input.unitsInput[name='sword']"],
     [Barbaro, "a.units-entry-all[data-unit='axe']",true,10,"input.unitsInput[name='axe']"],
 ];
-
 
 function mecanismo_inteligencia(el){
     try{
@@ -44,7 +34,6 @@ function calculadora(cap_index){
         unidades.push(0)
         aperte.push(0)
     }
-
 
     for(var i = 0; i<  Unidades_Coletando.length; i++){
         if(Unidades_Coletando[i][iniciar]){
@@ -85,7 +74,6 @@ const sleep = (milliseconds) => {
   return new Promise(resolve => setTimeout(resolve, milliseconds))
 }
 
-
 function pular_aldeia(){
     if ($(document).find("#village_switch_right").get()["0"]){
         jQuery.event.trigger({ type: 'keydown', which: 68 });
@@ -108,6 +96,5 @@ sleep(10).then(() => {
   fill(calculadora(0));
     $(botao[0]).click();
 }).then())))
-
 
 setTimeout(pular_aldeia, 18000);
