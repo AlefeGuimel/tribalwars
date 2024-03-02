@@ -1,0 +1,35 @@
+(function() {
+    'use strict';
+
+    var botToken = '6786414246:AAGdrp7noKR_4dE0UbiY1DZHuESLwuyapAg';
+    var chatId = '-1002031885946';
+
+    var checkForButton = function() {
+        var button = document.querySelector('#checkbox, #bot_check > a');
+        if (button) {
+                       var playerName = 'TribalWars.getGameData().player.name';
+            if (typeof TribalWars !== 'undefined' && TribalWars.getGameData && TribalWars.getGameData().player && TribalWars.getGameData().player.name) {
+                playerName = TribalWars.getGameData().player.name;
+            }
+            sendMessageToTelegram(button.innerText, playerName);
+        }
+    };
+
+        var sendMessageToTelegram = function(buttonText, playerName) {
+        var message = 'Captcha no ' + playerName + ', \n\Alguém tira por gentileza! \n\Obrigado!';
+        var url = 'https://api.telegram.org/bot' + botToken + '/sendMessage?chat_id=' + chatId + '&text=' + encodeURIComponent(message);
+
+        fetch(url, { method: 'POST' })
+        .then(function(response) {
+            if (!response.ok) {
+                throw new Error('HTTP error ' + response.status);
+            }
+        })
+        .catch(function(error) {
+            console.log('Request failed: ' + error.message);
+        });
+    };
+
+    setInterval(checkForButton, 5000);
+
+})();
